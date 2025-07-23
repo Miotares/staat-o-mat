@@ -242,6 +242,48 @@
         gap: 1.5rem;
       }
     }
+
+     @media (max-width: 768px) {
+  .footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+  font-size: 0.8rem;
+  color: #64748b;
+  position: static;
+  transform: none;
+}
+
+.footer-links a {
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #94a3b8;
+  text-decoration: underline;
+}
+
+.footer-links .separator {
+  display: none;
+}
+
+  /* Optional: Footer-Text auch zentrieren */
+  .footer {
+    position: static;
+    text-align: center;
+    padding: 0.5rem 0;
+    font-size: 0.75rem;
+    background: none;
+    box-shadow: none;
+    border: none;
+    transform: none;
+    margin-top: 1rem;
+  }
+}
   </style>
 </head>
 <body>
