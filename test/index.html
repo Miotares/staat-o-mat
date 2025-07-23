@@ -110,7 +110,8 @@
       gap: 0.8rem;
       flex-grow: 1;
       justify-content: center;
-      margin-top: 1rem;
+      margin-top: auto;
+      padding-top: 6rem; /* sorgt für konstanten Abstand */
     }
     
     label {
@@ -667,6 +668,15 @@
     margin-top: 1rem;
   }
 }
+
+@media (max-width: 768px) {
+  .result-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
     </style>
 </head>
 
