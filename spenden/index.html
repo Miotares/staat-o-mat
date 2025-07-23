@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/assets/favicon.png" type="image/x-icon">
+  <title>Spenden - Staat-O-Mat</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: 
+        linear-gradient(
+          135deg,
+          #ffd700 0%,
+          #ffed4e 30%,
+          #2d2d2d 70%,
+          #1a1a1a 100%
+        );
+      color: #1e293b;
+      min-height: 100vh;
+      animation: gentleShift 25s ease-in-out infinite;
+      background-size: 200% 200%;
+    }
+
+    @keyframes gentleShift {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      33% {
+        background-position: 50% 0%;
+      }
+      66% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      padding-bottom: 4rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 1);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(26, 26, 26, 0.1);
+      text-align: center;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #64748b;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      transition: color 0.2s ease;
+      text-align: left;
+      width: 100%;
+    }
+
+    .back-button:hover {
+      color: #1e293b;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #64748b;
+      margin-bottom: 2rem;
+    }
+
+    .description {
+      font-size: 1.1rem;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .donation-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .donation-card {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(26, 26, 26, 0.05));
+      border: 2px solid rgba(255, 215, 0, 0.3);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .donation-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+    }
+
+    .donation-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .donation-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 1rem;
+    }
+
+    .donation-description {
+      color: #64748b;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .qr-code {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 1rem;
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .crypto-address {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem;
+      font-family: monospace;
+      font-size: 0.85rem;
+      word-break: break-all;
+      color: #475569;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .crypto-address:hover {
+      background: #e2e8f0;
+    }
+
+    .thank-you {
+      background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(5, 150, 105, 0.05));
+      border: 2px solid rgba(5, 150, 105, 0.3);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      background: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.75rem;
+      color: #ffffff;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer a {
+      color: #ffd700 !important;
+      text-decoration: none !important;
+      font-weight: 500 !important;
+    }
+
+    .footer a:hover {
+      color: #ffed4e !important;
+      text-decoration: underline !important;
+    }
+
+    .footer-links {
+      position: fixed;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.75rem;
+      color: #64748b;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-links a {
+      color: #64748b !important;
+      text-decoration: none !important;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #94a3b8 !important;
+      text-decoration: underline !important;
+    }
+
+    .footer-links .separator {
+      color: #64748b;
+      font-size: 0.6rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      
+      .card {
+        padding: 2rem 1.5rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+
+      .donation-options {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <a href="/" class="back-button">
+        ← Zurück
+      </a>
+      
+      <h1>💰 Spenden</h1>
+      <p class="subtitle">Unterstütze meine Arbeit</p>
+      
+      <div class="description">
+        Wenn dir meine Arbeit gefällt und du mich unterstützen möchtest, freue ich mich über eine kleine Spende.
+      </div>
+
+      <div class="donation-options">
+        <div class="donation-card">
+          <div class="donation-icon">⚡</div>
+          <div class="donation-title">Bitcoin Lightning</div>
+          <div class="donation-description">
+            Schnelle und günstige Mikrotransaktionen
+          </div>
+            <div class="qr-code">
+                <img src="/assets/bitcoin-lightning-qr.jpeg" alt="Bitcoin Lightning QR-Code" width="150">
+            </div>
+          <div class="crypto-address" onclick="copyToClipboard(this)" title="Klicken zum Kopieren">
+            staunchshow94@walletofsatoshi.com
+          </div>
+        </div>
+
+        <div class="donation-card">
+          <div class="donation-icon">🟠</div>
+          <div class="donation-title">Monero</div>
+          <div class="donation-description">
+            Private und anonyme Transaktionen
+          </div>
+            <div class="qr-code">
+                <img src="/assets/monero-qr.png" alt="Monero QR-Code" width="150">
+            </div>
+          <div class="crypto-address" onclick="copyToClipboard(this)" title="Klicken zum Kopieren">
+            89jzNaFwbqHfRZV5iTkkV87Lc1fSK3MFm56FXoqKnbvwfv3ZWomHd1W5BoXJNrNL6UDsyLkuT5z3sLr34pnULJDSSKjVx3x
+          </div>
+        </div>
+      </div>
+
+      <div class="thank-you">
+        <h3>🙏 Vielen Dank für deine Unterstützung!</h3>
+        <p>Jede Spende hilft mir, weiter an nützlichen Projekten zu arbeiten.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function copyToClipboard(element) {
+      const text = element.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = element.textContent;
+        element.textContent = 'Kopiert! ✓';
+        element.style.background = '#dcfce7';
+        
+        setTimeout(() => {
+          element.textContent = originalText;
+          element.style.background = '#f8fafc';
+        }, 2000);
+      });
+    }
+
+    // Background-Animation synchronisieren
+    function syncBackgroundAnimation() {
+      const startTime = sessionStorage.getItem('backgroundStartTime');
+      
+      if (startTime) {
+        const elapsed = (Date.now() - parseInt(startTime)) / 1000;
+        const offset = elapsed % 25;
+        document.body.style.animationDelay = `-${offset}s`;
+      } else {
+        sessionStorage.setItem('backgroundStartTime', Date.now().toString());
+      }
+    }
+
+    function addFooter() {
+      const footer = document.createElement('div');
+      footer.className = 'footer';
+      footer.innerHTML = 'Made with ❤️ by <a href="https://twitter.com/miotares" target="_blank">@miotares</a>';
+      document.body.appendChild(footer);
+      
+      const footerLinks = document.createElement('div');
+      footerLinks.className = 'footer-links';
+      footerLinks.innerHTML = `
+        <a href="/datenschutz/">Datenschutz</a>
+        <span class="separator">•</span>
+        <a href="/spenden/">Spenden</a>
+      `;
+      document.body.appendChild(footerLinks);
+    }
+
+    window.addEventListener('DOMContentLoaded', syncBackgroundAnimation);
+    addFooter();
+  </script>
+</body>
+</html>

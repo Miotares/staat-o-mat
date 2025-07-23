@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/assets/favicon.png" type="image/x-icon">
+  <title>Datenschutz - Staat-O-Mat</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: 
+        linear-gradient(
+          135deg,
+          #ffd700 0%,
+          #ffed4e 30%,
+          #2d2d2d 70%,
+          #1a1a1a 100%
+        );
+      color: #1e293b;
+      min-height: 100vh;
+      animation: gentleShift 25s ease-in-out infinite;
+      background-size: 200% 200%;
+    }
+
+    @keyframes gentleShift {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      33% {
+        background-position: 50% 0%;
+      }
+      66% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      padding-bottom: 4rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 1);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(26, 26, 26, 0.1);
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #64748b;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      transition: color 0.2s ease;
+    }
+
+    .back-button:hover {
+      color: #1e293b;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #475569;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info {
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-left: 4px solid #ffd700;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      background: rgba(26, 26, 26, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.75rem;
+      color: #ffffff;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer a {
+      color: #ffd700 !important;
+      text-decoration: none !important;
+      font-weight: 500 !important;
+    }
+
+    .footer a:hover {
+      color: #ffed4e !important;
+      text-decoration: underline !important;
+    }
+
+    .footer-links {
+      position: fixed;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.75rem;
+      color: #64748b;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-links a {
+      color: #64748b !important;
+      text-decoration: none !important;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #94a3b8 !important;
+      text-decoration: underline !important;
+    }
+
+    .footer-links .separator {
+      color: #64748b;
+      font-size: 0.6rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      
+      .card {
+        padding: 2rem 1.5rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <a href="/" class="back-button">
+        ← Zurück
+      </a>
+      
+      <h1>Datenschutzerklärung</h1>
+  <p>Diese Website erhebt und verarbeitet keine personenbezogenen Daten im Sinne der Datenschutz-Grundverordnung (DSGVO). Es werden keine Cookies gesetzt und keine Formulareingaben gespeichert.</p>
+
+  <h2>Besucherstatistik mit Umami</h2>
+  <p>Zur anonymen Analyse der Nutzung dieser Website wird <strong>Umami</strong> verwendet – ein datenschutzfreundliches Open-Source-Analysewerkzeug. Dabei werden keine Cookies verwendet und keine personenbezogenen Daten gespeichert. Die Auswertung erfolgt vollständig anonymisiert, ohne Rückschluss auf einzelne Besucher.</p>
+  <p>Weitere Informationen zur Funktionsweise findest du unter <a href="https://umami.is" target="_blank" rel="noopener noreferrer">umami.is</a>.</p>
+
+  <h2>Verantwortlicher</h2>
+  <p>Verantwortlich für diese Website gemäß DSGVO:</p>
+  <p>
+  Miotares<br>
+  E-Mail: <a href="mailto:staat-o-mat@miotares.com">staat-o-mat@miotares.com</a>
+</p>
+
+
+  <h2>Fragen zum Datenschutz</h2>
+  <p>Bei Fragen zum Datenschutz auf dieser Seite kannst du dich formlos an mich wenden.</p>
+
+  </div>
+
+  <script>
+    // Background-Animation synchronisieren
+    function syncBackgroundAnimation() {
+      const startTime = sessionStorage.getItem('backgroundStartTime');
+      
+      if (startTime) {
+        const elapsed = (Date.now() - parseInt(startTime)) / 1000;
+        const offset = elapsed % 25;
+        document.body.style.animationDelay = `-${offset}s`;
+      } else {
+        sessionStorage.setItem('backgroundStartTime', Date.now().toString());
+      }
+    }
+
+    function addFooter() {
+      const footer = document.createElement('div');
+      footer.className = 'footer';
+      footer.innerHTML = 'Made with ❤️ by <a href="https://twitter.com/miotares" target="_blank">@miotares</a>';
+      document.body.appendChild(footer);
+      
+      const footerLinks = document.createElement('div');
+      footerLinks.className = 'footer-links';
+      footerLinks.innerHTML = `
+        <a href="/datenschutz/">Datenschutz</a>
+        <span class="separator">•</span>
+        <a href="/spenden/">Spenden</a>
+      `;
+      document.body.appendChild(footerLinks);
+    }
+
+    window.addEventListener('DOMContentLoaded', syncBackgroundAnimation);
+    addFooter();
+  </script>
+</body>
+</html>

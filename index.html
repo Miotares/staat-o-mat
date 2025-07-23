@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/assets/favicon.png" type="image/x-icon">
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="8a84b802-415c-4ffb-b314-a43d6f83f366"></script>
+
+    <!-- In den <head> Bereich beider Seiten (index.html und test/index.html) einfügen -->
+    <meta name="description" content="Staat-O-Mat: Finde heraus, wie staatsgläubig du wirklich bist! 35 Thesen ordnen dich präzise zwischen Freiheit und Staatskontrolle ein.">
+    <meta name="keywords" content="libertär, etatistisch, politischer Test, Staatsgläubigkeit, Freiheitstest, Marktwirtschaft, Staatskontrolle, politische Einstellung">
+    <meta name="author" content="Staat-O-Mat">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://staat-o-mat.de/">
+    <meta property="og:title" content="Staat-O-Mat: Wie staatsgläubig bist du wirklich?">
+    <meta property="og:description" content="Entdecke deine Position zwischen radikaler Freiheit und staatlicher Kontrolle - wissenschaftlich fundiert in 5 Minuten.">
+    <meta property="og:image" content="https://staat-o-mat.de/assets/twitter-preview.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@miotares">
+    <meta name="twitter:creator" content="@miotares">
+    <meta name="twitter:title" content="Bin ich libertär? Der Staat-O-Mat verrät's dir!">
+    <meta name="twitter:description" content="35 knifflige Thesen enthüllen dein wahres Verhältnis zum Staat. Teste dich jetzt!">
+    <meta name="twitter:image" content="https://staat-o-mat.de/assets/twitter-preview.jpg">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://staat-o-mat.de/">
+
+    <link rel="preload" href="/assets/fonts.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <title>Staat-O-Mat - Wie staatsgläubig bist du?</title>
+
+    <style>
+        body {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background: 
+            linear-gradient(
+              135deg,
+              #ffd700 0%,
+              #ffed4e 30%,
+              #2d2d2d 70%,
+              #1a1a1a 100%
+            );
+          color: #1e293b;
+          min-height: 100vh;
+          animation: gentleShift 25s ease-in-out infinite;
+          background-size: 200% 200%;
+        }
+        
+        @keyframes gentleShift {
+          0%, 100% {
+            background-position: 0% 50%;
+          }
+          33% {
+            background-position: 50% 0%;
+          }
+          66% {
+            background-position: 100% 50%;
+          }
+        }
+        
+        .container {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 2rem;
+          padding-bottom: 2rem; /* Reduziert von 6rem */
+          text-align: center;
+        }
+        
+        .card {
+          background: rgba(255, 255, 255, 1);
+          border-radius: 20px;
+          padding: 3rem 2rem;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+          border: 2px solid rgba(26, 26, 26, 0.1);
+        }
+        
+        .logo {
+          font-size: 4rem;
+          margin-bottom: 1rem;
+        }
+        
+        h1 {
+          font-size: 3.5rem;
+          margin-bottom: 1.5rem;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          line-height: 1.1;
+          color: #1a1a1a;
+        }
+        
+        .subtitle {
+          font-size: 1.4rem;
+          color: #475569;
+          margin-bottom: 2rem;
+          font-weight: 500;
+        }
+        
+        .description {
+          font-size: 1.1rem;
+          color: #64748b;
+          line-height: 1.6;
+          margin-bottom: 2.5rem;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        
+        .features {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 1.5rem;
+          margin-bottom: 3rem;
+          max-width: 700px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        
+        .feature {
+          background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(26, 26, 26, 0.1));
+          border-radius: 12px;
+          padding: 1.5rem;
+          border: 1px solid rgba(255, 215, 0, 0.3);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        }
+        
+        .feature-icon {
+          font-size: 2.5rem;
+          margin-bottom: 1rem;
+          display: block;
+        }
+        
+        .feature h3 {
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+          color: #1e293b;
+          font-weight: 600;
+        }
+        
+        .feature p {
+          color: #64748b;
+          margin: 0;
+          font-size: 0.95rem;
+        }
+        
+        .start-button {
+          background: #1a1a1a;
+          color: white;
+          border: none;
+          padding: 1.2rem 3rem;
+          font-size: 1.3rem;
+          font-weight: 600;
+          border-radius: 50px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 10px 30px rgba(26, 26, 26, 0.4);
+          text-decoration: none;
+          display: inline-block;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .start-button:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 15px 40px rgba(26, 26, 26, 0.6);
+          background: #2d2d2d;
+        }
+        
+        .start-button:active {
+          transform: translateY(-1px);
+        }
+        
+        .start-button::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+          transition: left 0.5s;
+        }
+        
+        .start-button:hover::before {
+          left: 100%;
+        }
+        
+        .stats {
+          display: flex;
+          justify-content: center;
+          gap: 2rem;
+          margin-top: 2rem;
+          flex-wrap: wrap;
+        }
+        
+        .stat {
+          text-align: center;
+          color: #64748b;
+        }
+        
+        .stat-number {
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: #1e293b;
+          display: block;
+        }
+        
+        .stat-label {
+          font-size: 0.9rem;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+        
+        .floating-elements {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: -1;
+        }
+        
+        .floating-element {
+          position: absolute;
+          opacity: 0.03;
+          animation: float 60s infinite linear;
+        }
+        
+        .floating-element:nth-child(1) {
+          top: 20%;
+          left: 10%;
+          animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+          top: 60%;
+          right: 15%;
+          animation-delay: 20s;
+        }
+        
+        .floating-element:nth-child(3) {
+          bottom: 30%;
+          left: 20%;
+          animation-delay: 40s;
+        }
+        
+        @keyframes float {
+          0% { transform: translateY(0px) rotate(0deg); }
+          33% { transform: translateY(-10px) rotate(120deg); }
+          66% { transform: translateY(10px) rotate(240deg); }
+          100% { transform: translateY(0px) rotate(360deg); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+          .container {
+            padding: 1rem;
+          }
+          
+          .card {
+            padding: 2rem 1.5rem;
+            border-radius: 15px;
+          }
+          
+          h1 {
+            font-size: 2.5rem;
+          }
+          
+          .subtitle {
+            font-size: 1.2rem;
+          }
+          
+          .description {
+            font-size: 1rem;
+          }
+          
+          .features {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+          }
+          
+          .stats {
+            gap: 1rem;
+          }
+          
+          .start-button {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          h1 {
+            font-size: 2rem;
+          }
+          
+          .logo {
+            font-size: 3rem;
+          }
+        }
+        
+        .logo-minimal {
+          font-size: 3.2rem;
+          font-weight: 600;
+          letter-spacing: 0.02em;
+          line-height: 1;
+          margin-bottom: 1.5rem;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .logo-minimal .staat-part {
+          color: #1a1a1a;
+        }
+        
+        .logo-minimal .o-part {
+          color: #ffffff;
+          background: #ffd700;
+          border-radius: 50%;
+          width: 1.2em;
+          height: 1.2em;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 0.1em;
+          font-weight: 700;
+          font-size: 0.9em;
+        }
+        
+        .logo-minimal .mat-part {
+          color: #1a1a1a;
+        }
+        
+        /* Responsive Anpassungen */
+        @media (max-width: 768px) {
+          .logo-minimal {
+            font-size: 2.4rem;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .logo-minimal {
+            font-size: 2rem;
+          }
+        }
+        
+        .footer {
+          position: fixed;
+          bottom: 15px;
+          right: 15px;
+          background: rgba(26, 26, 26, 0.8);
+          backdrop-filter: blur(10px);
+          border-radius: 8px;
+          padding: 8px 12px;
+          font-size: 0.75rem;
+          color: #ffffff;
+          z-index: 1000;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer a {
+          color: #ffd700 !important;
+          text-decoration: none !important;
+          font-weight: 500 !important;
+        }
+        
+        .footer a:hover {
+          color: #ffed4e !important;
+          text-decoration: underline !important;
+        }
+
+        .footer-links {
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: #64748b;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-links a {
+  color: #64748b !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #94a3b8 !important;
+  text-decoration: underline !important;
+}
+
+.footer-links .separator {
+  color: #64748b;
+  font-size: 0.6rem;
+}
+
+@media (max-width: 480px) {
+  .footer-links {
+    font-size: 0.7rem;
+    bottom: 10px;
+  }
+}
+    </style>
+</head>
+
+<body>
+    <div class="floating-elements">
+        <div class="floating-element">🏛️</div>
+        <div class="floating-element">⚖️</div>
+        <div class="floating-element">🗳️</div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="logo">🏛️</div>
+            <h1 class="logo-minimal">
+  <span class="staat-part">Staat</span><span class="o-part">O</span><span class="mat-part">Mat</span>
+</h1>
+            <p class="subtitle">Wie staatsgläubig bist du wirklich?</p>
+
+            <p class="description">
+                In einer Welt zwischen Bürokratie, Eigenverantwortung und zunehmender Regulierung stellt sich eine zentrale Frage:
+                <strong>Wie viel Staat braucht eine freie Gesellschaft – und wie viel Freiheit erträgst du?</strong>
+                <br>
+                <br> Dieser Test hilft dir dabei, dein Verhältnis zu staatlicher Kontrolle, individuellen Rechten und wirtschaftlicher Ordnung einzuordnen. Anhand fundierter Aussagen aus verschiedenen Bereichen erhältst du eine differenzierte Einschätzung
+                deiner ideologischen Tendenzen zwischen Etatismus und Libertarismus.
+            </p>
+
+
+            <div class="features">
+                <div class="feature">
+                    <span class="feature-icon">🧭</span>
+                    <h3>Wo stehst du wirklich?</h3>
+                    <p>Finde heraus, wie deine Haltung zu Freiheit, Staat und Verantwortung einzuordnen ist – jenseits von Parteien und Labels.</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">📊</span>
+                    <h3>Präzise Auswertung</h3>
+                    <p>Individuelles Scoring-System für nuancierte Ergebnisse</p>
+                </div>
+            </div>
+
+            <a href="/test/" class="start-button">
+        Test starten 🚀
+      </a>
+
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">35</span>
+                    <span class="stat-label">Thesen</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">~5-10</span>
+                    <span class="stat-label">Minuten</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Parallax Effekt für floating elements
+        document.addEventListener('mousemove', (e) => {
+          const elements = document.querySelectorAll('.floating-element');
+          const x = e.clientX / window.innerWidth;
+          const y = e.clientY / window.innerHeight;
+          
+          elements.forEach((element, index) => {
+            const speed = (index + 1) * 0.05;
+            const xPos = (x - 0.5) * speed * 50;
+            const yPos = (y - 0.5) * speed * 50;
+            element.style.transform = `translate(${xPos}px, ${yPos}px) rotate(${index * 120}deg)`;
+          });
+        });
+    
+        // Footer hinzufügen
+       function addFooter() {
+         const footer = document.createElement('div');
+         footer.className = 'footer';
+         footer.innerHTML = 'Made with ❤️ by <a href="https://twitter.com/miotares" target="_blank">@miotares</a>';
+         document.body.appendChild(footer);
+
+                  const footerLinks = document.createElement('div');
+  footerLinks.className = 'footer-links';
+  footerLinks.innerHTML = `
+    <a href="/datenschutz/">Datenschutz</a>
+    <span class="separator">•</span>
+    <a href="/spenden/">Spenden</a>
+  `;
+  document.body.appendChild(footerLinks);
+
+       }
+    
+       // Auf beiden Seiten hinzufügen:
+    function syncBackgroundAnimation() {
+      const startTime = sessionStorage.getItem('backgroundStartTime');
+      
+      if (startTime) {
+        // Berechne verstrichene Zeit
+        const elapsed = (Date.now() - parseInt(startTime)) / 1000;
+        const offset = elapsed % 25; // 25s = Animation-Dauer
+        
+        // Setze Animation-Delay
+        document.body.style.animationDelay = `-${offset}s`;
+      } else {
+        // Erste Seite - speichere Startzeit
+        sessionStorage.setItem('backgroundStartTime', Date.now().toString());
+      }
+    }
+    
+    // Beim Laden aufrufen
+    window.addEventListener('DOMContentLoaded', syncBackgroundAnimation);
+    
+          addFooter();
+    </script>
+</body>
+
+</html>
